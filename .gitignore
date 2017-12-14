@@ -1,0 +1,4 @@
+__pycache__
+env
+web/__pycache__
+*.pyc
