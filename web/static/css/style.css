@@ -1,0 +1,34 @@
+.navbar-item img {
+    max-height: 100%;
+}
+
+.hero.is-white a.navbar-item:hover, .hero.is-white a.navbar-item.is-active, .hero.is-white .navbar-link:hover, .hero.is-white .navbar-link.is-active {
+    background-color:transparent;
+}
+
+.major {
+    font-size:3.5rem;
+}
+
+.spacing-sm {
+    height:8px;
+}
+
+
+.spacing-lg {
+    height:5rem;
+}
+
+
+.footer {
+    background-color:#102E4A;
+    color:#ffffff;
+}
+
+.footer .subtitle {
+    color:#ffffff;
+}
+
+.footer a {
+    color:#55C1FF;
+}

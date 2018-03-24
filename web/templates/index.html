@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>NakedBear - Create a secure and sharable url for any file on your computer</title>
+            <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/font-awesome.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bulma.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+
+
+        <section class="hero is-white is-fullheight">
+          <div class="hero-head">
+            <header class="navbar">
+              <div class="container">
+                <div class="navbar-brand">
+                  <a class="navbar-item">
+                    <img src="{{ url_for('static', filename='images/banner.png') }}" alt="NakedBear" width="250">
+                  </a>
+                  <span class="navbar-burger burger" data-target="navbarMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </span>
+                </div>
+                <div id="navbarMenu" class="navbar-menu">
+                    <div class="navbar-start">
+                      <a class="navbar-item" href="#">
+                        How it Works
+                      </a>
+                        <a class="navbar-item" href="#">
+                        Pricing
+                      </a>
+                        <a class="navbar-item" href="#">
+                        Download
+                      </a>
+
+                        <a class="navbar-item" href="#">
+                        Docs
+                      </a>
+                    </div>
+
+                  <div class="navbar-end">
+                    <a class="navbar-item" href="#">
+                      Login
+                    </a>
+                    <a class="navbar-item" href="#">
+                      Sign Up
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </header>
+          </div>
+
+          <!-- Hero content: will be in the middle -->
+          <div class="hero-body">
+            <div class="container">
+              <h1 class="title major">
+                Own Your Data
+              </h1>
+
+              <h2 class="subtitle">
+                Generate a secure url for any file on your computer to share it with the world.
+              </h2>
+
+
+                <div class="spacing-sm"></div>
+
+
+                <div class="field is-grouped">
+
+                        <p class="control">
+                            <div class="navbar-item has-dropdown">
+                                <a class="button is-medium">
+                                    <span class="icon is-small">
+                                        <i class="fa fa-apple"></i>
+                                    </span>
+                                    <span>macOS</span>
+                                </a>
+                            </div>
+                        </p>
+
+                        <p class="control">
+                          <div id="windowsBtn" class="navbar-item has-dropdown">
+                            <a class="button is-medium" onclick="$('#windowsBtn').toggleClass('is-active')">
+                                <span class="icon is-small">
+                                    <i class="fa fa-windows"></i>
+                                </span>
+                                <span>Windows</span>
+                                <span class="icon is-small">
+                                    <i class="fa fa-angle-down"></i>
+                                </span>
+                            </a>
+
+
+                            <div class="navbar-dropdown">
+                              <a class="navbar-item">
+                                x32
+                              </a>
+                              <a class="navbar-item">
+                                x64
+                              </a>
+                            </div>
+                          </div>
+                        </p>
+
+
+                        <p class="control">
+                          <div id="linuxBtn" class="navbar-item has-dropdown">
+                            <a class="button is-medium" onclick="$('#linuxBtn').toggleClass('is-active')">
+                                <span class="icon is-small">
+                                    <i class="fa fa-linux"></i>
+                                </span>
+                                <span>Linux</span>
+                                <span class="icon is-small">
+                                    <i class="fa fa-angle-down"></i>
+                                </span>
+                            </a>
+
+
+                            <div class="navbar-dropdown">
+                              <a class="navbar-item">
+                                x32
+                              </a>
+                              <a class="navbar-item">
+                                x64
+                              </a>
+                            </div>
+                          </div>
+                        </p>
+
+                </div>
+
+
+                <div class="spacing-lg"></div>
+
+            </div>
+          </div>
+        </section>
+
+
+
+        <section class="section">
+            <div class="container">
+                <h1 class="title has-text-centered">How it Works</h1>
+                <div class="columns">
+                    <div class="column">
+                        <h3 class="subtitle"></h3>
+                        <p>
+
+                        </p>
+                    </div>
+
+                    <div class="column">
+                        <h3 class="subtitle"></h3>
+                        <p>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="section">
+            <div class="container">
+                <h1 class="title has-text-centered">Pricing</h1>
+                <div class="columns">
+                    <div class="column">
+                        <h3 class="subtitle"></h3>
+                        <p>
+
+                        </p>
+                    </div>
+
+                    <div class="column">
+                        <h3 class="subtitle"></h3>
+                        <p>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="section">
+            <div class="container">
+                <h1 class="title has-text-centered">Team</h1>
+                <div class="columns">
+                    <div class="column">
+                        <h3 class="subtitle"></h3>
+                        <p>
+
+                        </p>
+                    </div>
+
+                    <div class="column">
+                        <h3 class="subtitle"></h3>
+                        <p>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <footer class="footer">
+          <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <h3 class="subtitle">Company</h3>
+                    <a href="#">About Us</a><br>
+                    <a href="#">Blog</a><br>
+                    <a href="#">Careers</a><br>
+                </div>
+
+                <div class="column">
+                    <h3 class="subtitle">Product</h3>
+                    <a href="#">How it Works</a><br>
+                    <a href="#">Platforms</a><br>
+                    <a href="#">Pricing</a><br>
+                    <a href="#">Status</a><br>
+                </div>
+
+                <div class="column">
+                    <h3 class="subtitle">Connect</h3>
+                    <a href="#">AngelList</a><br>
+                    <a href="#">Contact Us</a><br>
+                    <a href="#">Community</a><br>
+                    <a href="#">Facebook</a><br>
+                    <a href="#">Twitter</a><br>
+                </div>
+
+                <div class="column is-4 has-text-centered is-centered is-hidden-touch">
+                    <div>
+                        <h3 class="subtitle">Start learning a new language today.</h3>
+                        <a href="#" class="button is-info is-outlined">Download</a>
+                    </div>
+
+                </div>
+            </div>
+          </div>
+
+          <div class="columns">
+              <div class="column"></div>
+
+              <div class="column is-8">
+                  <div class="columns">
+                      <div class="column is-5 is-hidden-touch">
+                        <img src="{{ url_for('static', filename='images/banner.png') }}">
+                      </div>
+
+                      <div class="column is-centered">
+                          <div>
+                              <a href="#">Terms &amp; Conditions</a>
+                              ·
+                              <a href="#">Privacy Policy</a>
+                              ·
+                              <a href="#">Content Takedown</a>
+                              <p>
+                                  © 2017 Linx Solutions, Inc.
+                              </p>
+                          </div>
+
+                      </div>
+                  </div>
+              </div>
+
+              <div class="column"></div>
+          </div>
+        </footer>
+
+
+
+    </body>
+</html>
