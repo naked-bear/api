@@ -1,9 +1,10 @@
 from flask import Flask, render_template, url_for
-from web.blueprints.api import api
+from blueprints.api import api
 import os
 
 
 app = Flask(__name__)
+app.register_blueprint(api)
 
 
 @app.route("/")
