@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for
-from blueprints.api import api
+from web.blueprints.api import api
 import os
 
 

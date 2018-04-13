@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 import json
-from Users import Users
+from web.blueprints.api.Users import Users
 
 api = Blueprint('api',  __name__)
 
