@@ -19,9 +19,12 @@
     height:5rem;
 }
 
+.spacing-md {
+    height:2rem;
+}
 
 .footer {
-    background-color:#102E4A;
+    background-color:#29247a;
     color:#ffffff;
 }
 
@@ -30,5 +33,31 @@
 }
 
 .footer a {
-    color:#55C1FF;
+    color:#a444ff;
+}
+
+.is-purple {
+	background-color: transparent;
+	color: #a444ff;
+	border-color: #a444ff;
+}
+
+.is-purple:hover {
+	background-color: #a444ff;
+	color: #29247a;
+	border-color: transparent;
+}
+
+.number {
+    background-color: #29247a;
+    color:#ffffff;
+    position: absolute;
+    z-index:10;
+    left:-15px;
+    top:-15px;
+    min-width: 2em;
+}
+
+.box {
+	position: relative;
 }
