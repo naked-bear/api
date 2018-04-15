@@ -22,14 +22,21 @@ def login():
 
 @api.route('/api/auth/signup', methods=['POST'])
 def signup():
-    data = request.get_json(silent=True, force=True)
-    return Users().signup(data['fullName'], data['username'], data['email'], data['password'])
+    if request.method == 'POST':
+        data = request.get_json(silent=True, force=True)
+        return Users().signup(data['fullName'], data['username'], data['email'], data['password'])
 
 
 @api.route('/api/auth/forgot', methods=['POST'])
 def forgot():
-    data = request.get_json(silent=True, force=True)
-    return Users().authenticate(data['email'])
+    if request.method == 'POST':        
+        data = request.get_json(silent=True, force=True)
+        return Users().authenticate(data['email'])
+
+
+@api.route('/api/auth/confirm/<confirmation>')
+def confirm(confirmation):
+    return json.loads(Users().verify(confirmation))['message']
 
 
 @api.route('/download/<username>/<filename>')

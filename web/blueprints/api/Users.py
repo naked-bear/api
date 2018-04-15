@@ -1,7 +1,11 @@
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+from sparkpost import SparkPost
 import web.config as config
 import json
+import base64
+import string
+import random
 
 
 class Users:
@@ -13,12 +17,14 @@ class Users:
 
         user = self.client[config.mongodb['database']]['users'].find_one({
             'username': username,
-            'password': password
+            'password': base64.b64encode(password.encode("utf-8"))
         })
 
         if user is not None:
             if user['isConfirmed']:
                 if user['isSuspended'] is not True:
+                    del user['password']
+                    user['_id'] = str(user['_id'])
                     return self.response(True, user)
                 else:
                     return self.response(False, 'Your account is suspended, please contact support@nakedbear.io.')
@@ -41,12 +47,30 @@ class Users:
 
             if user is None:
 
+                confirm = self.generate_random()
+
                 self.client[config.mongodb['database']]['users'].insert_one({
                     'fullName': full_name,
                     'username': username,
                     'email': email,
-                    'password': password
+                    'password': base64.b64encode(password.encode("utf-8")),
+                    'isConfirmed': False,
+                    'isSuspended': False,
+                    'confirm': confirm,
+                    'plan': 0
                 })
+
+                with open('web/templates/confirmation_email.html', 'r') as html_file:
+                    
+                    with open('sparkpost.key', 'r') as key_file:
+                        html = html_file.read().replace('{{confirm}}', confirm)
+                        sp = SparkPost(key_file.read().replace('\n', ''))
+                        sp.transmissions.send(
+                            recipients=[email],
+                            html=html,
+                            from_email='do_not_reply@nakedbear.io',
+                            subject='Hello from NakedBear'
+                        )
 
                 return self.response(True, 'Account created successfully. A confirmation email has been sent to '+email+'.')
 
@@ -61,6 +85,20 @@ class Users:
     def forgot(self, email):
         return
 
+    def verify(self, confirmation):
+        
+        if self.is_valid(confirmation):
+            self.client[config.mongodb['database']]['users'].update_one({
+                "confirm": confirmation
+            }, {
+                "$set": {
+                    "isConfirmed": True
+                }
+            }, upsert=False)
+            return self.response(True, '<center><h1>Email address confirmed!</h1><small>You may close this window</small>')
+        else:
+            return self.response(False, '<center><h1>Failed to verify email address :(</h1><small>Contact support@nakedbear.io</small></center>')
+
     def is_valid(self, inputs):
         for i in inputs:
             if len(i) == 0:
@@ -69,12 +107,12 @@ class Users:
 
     def response(self, status, message):
         data = {
-            'status': status
+            'status': status,
+            'message': message
         }
-        if isinstance(message, dict):
-            data['message'] = message
-        else:
-            data['message'] = "'"+message+"'"
         
         return json.dumps(data)
+
+    def generate_random(self):
+        return ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(16))
 
